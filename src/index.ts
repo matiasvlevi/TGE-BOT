@@ -26,8 +26,10 @@ bot.on('messageCreate', (msg: Message) => {
 	if (res.invalid) return;
 
 	// Abort if command doesnt exist
-	if (commands[res.name] === undefined) return // INPUT ERROR HANDLING 
-
+	if (commands[res.name] === undefined) {
+		msg.channel.send(`La commande \`${res.name}\` n'existe pas, voir \`${CONFIG.PREFIX}help\``);
+		return;
+	}
 	// Run the command
 	commands[res.name].action(msg, res.args);
 	Logger.command(msg);

@@ -1,6 +1,6 @@
 # TGE-BOT
 
-Bot officiel du serveur de la technique d'électronique au Collège Montmorency
+Bot officiel du serveur de la technique d'électronique du Collège Montmorency
 
 ### Installation
 

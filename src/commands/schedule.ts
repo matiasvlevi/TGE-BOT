@@ -12,8 +12,14 @@ export function scheduleCommand(msg: Message, args: string[]) {
 
 	// Abort if room not found
 	if (SCHEDULE[args[0]] === undefined) {
-		msg.channel.send(`Votre local spécifiée \`${args[0]}\` n'existe pas`);
-		return;
+
+		// Check if room with block adress is present
+		if (SCHEDULE[`C${args[0]}`] === undefined) {
+			msg.channel.send(`Votre local spécifiée \`${args[0]}\` n'existe pas`);
+			return;
+		}
+		// Correct the user
+		args[0] = `C${args[0]}`
 	}
 
 	// Send schedule image which was generated at startup 
