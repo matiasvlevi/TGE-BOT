@@ -1,3 +1,5 @@
+import { scheduleCommand } from './schedule'
+
 import { Message } from 'discord.js'
 
 type Command = {
@@ -18,9 +20,7 @@ const commands:CommandMap = {
 	},
 	horraire: {
 		permissions: ["ALL"],
-		action: (msg: Message, args:string[]) => {
-			msg.channel.send("Horraire command");	
-		}
+		action: scheduleCommand
 	}
 };
 
