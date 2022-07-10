@@ -1,4 +1,4 @@
-import { TIMESTAMP_SIZE } from './gui/constants' 
+import { TIMESTAMP_SIZE, CANVAS_WIDTH, CANVAS_HEIGHT, } from './gui/constants' 
 
 import addCellsAndDays from './gui/addCellsAndDays'
 import addTimestamps from './gui/addTimestamps'
@@ -16,19 +16,17 @@ export function getSchedule(): Schedule {
 	const file = readFileSync('./data/schedule.json', 'utf-8');
 	const data:Schedule = JSON.parse(file);
 
-	const width = 600;
-	const height = 400;
-
+	// Get sample room schedule to calculate length
 	let values = Object.values(Object.values(data)[0].raw);
 
 	// cells dimentsions
-	const cellWidth = (width-TIMESTAMP_SIZE)/(values.length);
-	const cellHeight = height/(values[0].length+1);
+	const cellWidth = (CANVAS_WIDTH-TIMESTAMP_SIZE)/values.length;
+	const cellHeight = CANVAS_HEIGHT/(values[0].length+1);
 
 	for (let room in data) {
 		
 		// Create the canvas & context
-		const canvas = createCanvas(width, height); 
+		const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT); 
 		let ctx = canvas.getContext('2d');	
 		
 		// Add gui items to canvas
@@ -45,6 +43,8 @@ export function getSchedule(): Schedule {
 		// Save image to png file
 		writeFileSync(filename, buffer);
 	}
+
+	// Write new json file
 	writeFileSync('./data/schedule.json',JSON.stringify(data), 'utf-8');
 	return data;
 }

@@ -32,6 +32,15 @@ export default function addCellsAndDays(
 				cellWidth,
 				cellHeight
 			);
+
+			ctx.fillStyle = COLORS.darkgrey;
+			if (room.raw[day][i]) {
+				ctx.fillText(
+					"Libre",
+					j*cellWidth+TIMESTAMP_SIZE+(cellWidth/2),
+					i*cellHeight+cellHeight+(cellHeight/1.45)
+				);
+			}
 		}
 		j++;
 	}

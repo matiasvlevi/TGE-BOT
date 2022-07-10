@@ -3,6 +3,9 @@ export const PERIOD_DURATION = 50;
 export const PERIOD_BREAK = 5;
 export const TIMESTAMP_SIZE = 60;
 
+export const CANVAS_WIDTH = 600;
+export const CANVAS_HEIGHT = 400;
+
 export const COLORS = {
 	blue: '#7289da',
 	white: '#ffffff',

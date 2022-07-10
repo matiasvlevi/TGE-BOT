@@ -1,6 +1,7 @@
 import CONFIG from './config'
 import commands from './commands/index'
 
+import Logger from './logger'
 import { isSelf } from './utils/isSelf'
 import { parse, ParseResult } from './utils/parse'
 
@@ -29,6 +30,7 @@ bot.on('messageCreate', (msg: Message) => {
 
 	// Run the command
 	commands[res.name].action(msg, res.args);
+	Logger.command(msg);
 });
 
 bot.login(CONFIG.TOKEN);
