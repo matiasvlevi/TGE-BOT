@@ -1,7 +1,8 @@
 import CONFIG from './config'
 import commands from './commands/index'
-import { isSelf } from './isSelf'
-import { parse, ParseResult } from './parse'
+
+import { isSelf } from './utils/isSelf'
+import { parse, ParseResult } from './utils/parse'
 
 import { Client, Message } from 'discord.js'
 
