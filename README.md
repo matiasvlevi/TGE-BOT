@@ -28,3 +28,11 @@ npm run build
 ```
 npm run start
 ```
+<br/>
+
+# Contribuer
+
+Ce projet est ouvert a la contribution de code. 
+Nous utilisons le workflow `git`.
+
+Créez votre fork et faites vos ajouts, pour ensuite faire une `pull request` avec la branche mère.
